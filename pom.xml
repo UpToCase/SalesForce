@@ -12,6 +12,8 @@
         <selenium.version>4.5.0</selenium.version>
         <webdrivermanager.version>5.3.0</webdrivermanager.version>
         <surefire.version>3.0.0-M5</surefire.version>
+        <aspect.version>1.9.9.1</aspect.version>
+        <allure-TestNG.version>2.19.0</allure-TestNG.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <suiteXmlFile>src/test/resorces/testng.xml</suiteXmlFile>
@@ -27,7 +29,16 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx256m
+                    </argLine>
                 </configuration>
+            </plugin>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
             </plugin>
         </plugins>
     </build>
@@ -63,6 +74,19 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspect.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-TestNG.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
