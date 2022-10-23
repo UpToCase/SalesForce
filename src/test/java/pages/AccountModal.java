@@ -3,9 +3,11 @@ package pages;
 import accountElements.DropDawn;
 import accountElements.Input;
 import accountElements.TextArea;
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.AllureUtils;
 
 public class AccountModal extends BasePage {
     public final static By MODAL_TITLE = By.xpath("//h2[contains(text(),'Создать организацию')]");
@@ -15,11 +17,13 @@ public class AccountModal extends BasePage {
         super(driver);
     }
 
+    @Step("check correct page has been opened")
     @Override
     public boolean isPageOpened() {
         return isExist(MODAL_TITLE);
     }
 
+    @Step("create new account")
     public AccountModal createNewCompany(Account account) {
         new Input(driver, "Имя организации").write(account.getCompanyName());
         new Input(driver, "Веб-узел").write(account.getNewCompanyUrl());
@@ -41,6 +45,7 @@ public class AccountModal extends BasePage {
         return this;
     }
 
+    @Step("save created new account")
     public AccountModal save() {
         try {
             Thread.sleep(1000);

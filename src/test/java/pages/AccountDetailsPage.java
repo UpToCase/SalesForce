@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,17 +14,20 @@ public class AccountDetailsPage extends BasePage {
         super(driver);
     }
 
+    @Step("check correct page has been opened")
     @Override
     public boolean isPageOpened() {
         isExist(DATA_IMAGES);
         return false;
     }
 
+    @Step("open account tab")
     public AccountDetailsPage openDetailsTab() {
         driver.findElement(NEW_COMPANY_DETAILS).click();
         return this;
     }
 
+    @Step("check new account entered information")
     public AccountDetailsPage validateNewAccount(Account account) {
         validateNewAccountText("Имя организации", account.getCompanyName());
         validateNewAccountText("Веб-узел", account.getNewCompanyUrl());

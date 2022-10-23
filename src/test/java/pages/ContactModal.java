@@ -3,6 +3,7 @@ package pages;
 import contactElements.DropDawn;
 import contactElements.Input;
 import contactElements.TextArea;
+import io.qameta.allure.Step;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +16,13 @@ public class ContactModal extends BasePage {
         super(driver);
     }
 
+    @Step("check correct page has been opened")
     @Override
     public boolean isPageOpened() {
         return false;
     }
 
+    @Step("create new contact")
     public ContactModal createNewContact(Contact contact) {
 
         new DropDawn(driver, "Приветствие").select(contact.getWelcome());
@@ -57,6 +60,7 @@ public class ContactModal extends BasePage {
         return this;
     }
 
+    @Step("save created new contact")
     public ContactModal save() {
         driver.findElement(SAVE_BUTTON).click();
         return this;

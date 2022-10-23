@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,12 +13,14 @@ public class ContactDetailsPage extends BasePage {
         super(driver);
     }
 
+    @Step("check correct page has been opened")
     @Override
     public boolean isPageOpened() {
         isExist(NEW_CONTACT_IS_EXIST);
         return false;
     }
 
+    @Step("check new contact entered information")
     public ContactDetailsPage validateNewContact(Contact contact) {
         validateNewContactInfo("Имя", contact.getWelcome() + contact.getPersonalName()
                 + contact.getLastName());
