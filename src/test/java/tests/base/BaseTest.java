@@ -41,13 +41,13 @@ public abstract class BaseTest {
         if (browser.equals("chrome")){
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized","--headless", "--disable-notifications",
+            options.addArguments("--headless", "--disable-notifications",
                     "disable-translate", "disable-popup-blocking", "ignore-certificate-errors");
             driver = new ChromeDriver(options);
         }else if (browser.equals("opera")) {
             WebDriverManager.operadriver().setup();
             OperaOptions options = new OperaOptions();
-            options.addArguments("--start-maximized","--headless", "--disable-notifications",
+            options.addArguments("--headless", "--disable-notifications",
                     "disable-translate", "disable-popup-blocking", "ignore-certificate-errors");
             driver = new OperaDriver(options);
         }else if (browser.equals("edge")){
@@ -57,7 +57,7 @@ public abstract class BaseTest {
         }else if (browser.equals("firefox")){
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--start-maximized","--headless", "--disable-notifications",
+            options.addArguments("--headless", "--disable-notifications",
                     "disable-translate", "disable-popup-blocking", "ignore-certificate-errors");
             driver = new FirefoxDriver();
         }else if (browser.equals("safari")){
@@ -65,6 +65,7 @@ public abstract class BaseTest {
             SafariOptions options = new SafariOptions();
             driver = new SafariDriver();
         }
+        driver.manage().window().maximize();
         testContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
