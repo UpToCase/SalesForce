@@ -17,7 +17,7 @@
         <allure-maven.version>2.10.0</allure-maven.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <suiteXmlFile>src/test/resorces/testng.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
     </properties>
 
     <build>
@@ -33,10 +33,16 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx256m
                     </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
             </plugin>
             <plugin>
-                <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+                <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven-->
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
@@ -51,6 +57,12 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspect.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -73,12 +85,6 @@
             <artifactId>selenium-opera-driver</artifactId>
             <version>4.4.0</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspect.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
