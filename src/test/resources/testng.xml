@@ -7,7 +7,7 @@
     </listeners>
 
     <test name ="Tread 1">
-        <parameter name="browser" value="opera"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.LoginTest">
             </class>
@@ -23,7 +23,7 @@
     </test>
 
     <test name="Tread 3">
-        <parameter name="browser" value="safari"> </parameter>
+        <parameter name="browser" value="chrome"> </parameter>
         <classes>
             <class name="tests.ContactTest">
             </class>
