@@ -21,7 +21,7 @@ public class AccountTest extends BaseTest {
         Account account = new Account("BBQ", "111.000.222", "1234567890",
                 "15", "12345", "Ort", "Sxn",
                 "Land", "54321", "Tro", "Nxs",
-                "Dnal", "Investor", "Agriculture",
+                "Dnal", "Инвестор", "Сельское хозяйство",
                 "Broadway", "Avenue", "new company added");
         accountModal
                 .createNewCompany(account)
