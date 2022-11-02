@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ContactPage extends BasePage {
 
-    public final static By CONTACT_TAB = By.xpath("//*[@data-id='Contact']");
+    public final static By CONTACT_TAB = By.xpath("//*[@data-target-selection-name='sfdc:TabDefinition.standard-Contact']");
     public final static By NEW_CONTACT_ICON = By.xpath("//img[@title='Контакты']");
 
 

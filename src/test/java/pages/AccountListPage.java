@@ -9,7 +9,8 @@ public class AccountListPage extends BasePage {
     public final static By CREATE_NEW_COMPANY_BUTTON = By.cssSelector("[title='Создать']");
     public final static By NEW_COMPANY_ICON = By.xpath("//span[@title='Имя организации']");
 
-    public final static By  NEW_COMPANY_PAGE_TAB = By.xpath("//*[@data-id='Account']");
+    public final static By  NEW_COMPANY_PAGE_TAB = By.xpath("//*[@data-target-selection-name=" +
+            "'sfdc:TabDefinition.standard-Account']");
 
 
     public AccountListPage(WebDriver driver) {
