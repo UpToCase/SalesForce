@@ -21,7 +21,6 @@ public class LoginPage extends BasePage {
     @Step("open base URL 'https://login.salesforce.com/?locale=de'")
     public LoginPage openPage() {
         driver.get(BASE_URL);
-//        driver.get(BASE_URL + "/lightning/o/Account/list?filterName=Recent");
         return this;
     }
 
